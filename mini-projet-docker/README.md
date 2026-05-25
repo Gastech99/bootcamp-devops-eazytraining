@@ -545,27 +545,6 @@ Pour toute question ou problème :
 **Version:** 1.0.0  
 **Licence:** MIT
 
-## Docker Registry (4 Points)
-
-You need to push your built images to a private Docker registry and deploy the images using Docker Compose.
-
-### Steps:
-1. Build the images for both backend and MySQL.
-2. Deploy a private Docker registry.
-3. Push your images to the registry and use them in `docker-compose.yml`.
-
 ---
-
-## Delivery (4 Points)
-
-For your delivery, provide the following in your repository:
-
-- **README** with screenshots and explanations.
-- **Dockerfile** and **docker-compose.yml**.
-- **Screenshots** showing the application running.
-  
-Your delivery will be evaluated based on:
-- Quality of explanations and screenshots
-- Repository structure and clarity
 
 
