@@ -1,0 +1,24 @@
+# =====================================================================
+# Exceptions Trivy — faux positifs documentés
+# =====================================================================
+# Ces CVE sont détectées par Trivy via un SBOM tiers embarqué dans les
+# métadonnées de certains paquets pip récents (PEP 770 - SBOM in wheels).
+# Ce SBOM décrit l'environnement utilisé pour CONSTRUIRE le wheel sur
+# PyPI (msgpack, setuptools 70.3.0 côté build), pas ce qui est réellement
+# installé dans l'image finale.
+#
+# Preuve : ces paquets n'apparaissent dans AUCUNE entrée individuelle de
+# usr/local/lib/python3.11/site-packages/*/METADATA du rapport Trivy —
+# seule la ligne agrégée "Python" (source SBOM tiers) les remonte.
+# Voir warning Trivy : "Third-party SBOM may lead to inaccurate
+# vulnerability detection".
+#
+# A réévaluer si le comportement de pip/Trivy change.
+# =====================================================================
+
+# msgpack 1.1.2 -> faux positif (build-time only, non installé)
+GHSA-6v7p-g79w-8964
+
+# setuptools 70.3.0 -> faux positif (build-time only, version réelle
+# installée = 83.0.0, cf. scan LOW/MEDIUM qui confirme la bonne version)
+CVE-2025-47273
